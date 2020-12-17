@@ -1,0 +1,211 @@
+$whiteLine: 2px solid #fff;
+@mixin xcenter {
+  left: 50%;
+  transform: translateX(-50%);
+}
+@mixin ycenter {
+  top: 50%;
+  transform: translateY(-50%);
+}
+@mixin flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: poppins;
+}
+
+body {
+  .firstpage {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    @include flex();
+    background: blue;
+    .grass {
+      @include flex();
+      height: 100vh;
+      width: 50%;
+      border-radius: 20%;
+      background-color: rgb(8, 66, 8);
+      .pitch {
+        position: relative;
+        width: 70%;
+        height: 90%;
+        background: rgb(57, 165, 57);
+        border: $whiteLine;
+        .circle {
+          height: 120px;
+          width: 120px;
+          border: $whiteLine;
+          position: absolute;
+          @include xcenter();
+          margin-top: -60px;
+          border-radius: 60px;
+        }
+        .top-curve {
+          position: absolute;
+          height: 50px;
+          width: 50px;
+          border: $whiteLine;
+          top: 35px;
+          @include xcenter();
+          transform: translateX(-50%) rotate(45deg);
+          border-top: none;
+          border-left: none;
+          border-bottom-right-radius: 45px;
+        }
+
+        .bottom-curve {
+          height: 50px;
+          width: 50px;
+          border: $whiteLine;
+          position: absolute;
+          bottom: 35px;
+          @include xcenter();
+          transform: translateX(-50%) rotate(45deg);
+          border-right: none;
+          border-bottom: none;
+          border-top-left-radius: 45px;
+        }
+        .top-left-corner {
+          position: absolute;
+          top: 0;
+          height: 30px;
+          width: 30px;
+          border: $whiteLine;
+          border-left: none;
+          border-top: none;
+          border-bottom-right-radius: 50px;
+        }
+        .top-right-corner {
+          position: absolute;
+          top: 0;
+          right: 0;
+          height: 30px;
+          width: 30px;
+          border: $whiteLine;
+          border-top: none;
+          border-right: none;
+          border-bottom-left-radius: 50px;
+        }
+        .bottom-left-corner {
+          position: absolute;
+          bottom: 0;
+          height: 30px;
+          width: 30px;
+          border: $whiteLine;
+          border-left: none;
+          border-bottom: none;
+          border-top-right-radius: 50px;
+        }
+        .bottom-right-corner {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          height: 30px;
+          width: 30px;
+          border: $whiteLine;
+          border-right: none;
+          border-bottom: none;
+          border-top-left-radius: 50px;
+        }
+        .top-box18 {
+          height: 60px;
+          width: 150px;
+          border: $whiteLine;
+          position: absolute;
+          top: 0;
+          border-top: none;
+          @include xcenter();
+          .top-box16 {
+            height: 30px;
+            width: 70px;
+            border: $whiteLine;
+            position: absolute;
+            top: 0;
+            border-top: none;
+            @include xcenter();
+          }
+        }
+        span {
+          position: absolute;
+          @include ycenter();
+          width: 100%;
+          border: $whiteLine;
+          border-top: none;
+        }
+
+        .bottom-box18 {
+          height: 60px;
+          width: 150px;
+          border: $whiteLine;
+          position: absolute;
+          bottom: 0;
+          border-bottom: none;
+          @include xcenter();
+          .bottom-box16 {
+            height: 30px;
+            width: 70px;
+            border: $whiteLine;
+            position: absolute;
+            bottom: 0;
+            border-bottom: none;
+            @include xcenter();
+          }
+        }
+      }
+    }
+  }
+  .secondpage {
+    position: relative;
+    @include xcenter();
+    height: auto;
+    width: 60%;
+    background-color: yellow;
+    margin-top: 30px;
+    .video-container {
+      position: relative;
+      padding-bottom: calc(var(--aspect-ratio, 0.5625) * 100%);
+      height: 0;
+      width: 100%;
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    h1 {
+      text-align: center;
+      padding: 30px 0;
+    }
+    p {
+      text-align: center;
+    }
+  }
+}
+
+@media all and (max-width: 770px) {
+  body .firstpage .grass .pitch {
+    width: 85%;
+  }
+  body {
+    background: tomato;
+  }
+  body .firstpage {
+    background: pink;
+  }
+}
+@media all and (max-width: 430px) {
+  body .firstpage .grass {
+    height: 100%;
+    width: 100%;
+  }
+}
